@@ -1,0 +1,15 @@
+﻿
+@{
+    var cars=Model.cars;
+}
+
+
+<h1>you came from @Model.type</h1>
+<h1>@($"{@cars.Model} From {@cars.Manufacturer}")</h1>
+<h2>@(DateTime.Now.Year - @cars.FirstUseDate.Year)</h2>
+<h3>@cars.HtmlDescription</h3>
+<figure class="figure">
+    <img src="https://picsum.photos/500" class="figure-img img-fluid rounded" alt="@cars.Model">
+    <figcaption class="figure-caption">@cars.Model </figcaption>
+</figure>
+<hr />

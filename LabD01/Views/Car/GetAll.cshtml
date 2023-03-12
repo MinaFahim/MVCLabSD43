@@ -1,0 +1,52 @@
+﻿
+
+@{var cars= Model;
+}
+
+<table>
+    <thead>
+        <tr>
+            <th class="p-2">Model From Manufactor</th>
+            <th class="p-2"> Usage Duration   </th>
+            <th class="p-2">  Descrition   </th>
+            <th class="p-2">Image  </th>
+            <th class=" p-2">Detials </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in @cars)
+        {
+        <tr>
+         <td class="p-2">@($"{@item.Model} From {@item.Manufacturer}")</td>   
+         <td class="p-2">@(DateTime.Now.Year-item.FirstUseDate.Year)</td>   
+         <td class="p-2">@item.HtmlDescription</td>
+         <td>
+             <figure class="figure">
+                        <img src="https://picsum.photos/500" class="figure-img img-fluid rounded" alt="@item.Model">
+                 <figcaption class="figure-caption">@item.Model </figcaption>
+             </figure>
+         </td>
+                <td><a href="/car/getdetial?model=@item.Model&type=table"> Go On</a> </td>
+                
+        </tr>
+        }
+    </tbody>
+</table>
+
+@for(int i=0;i<@cars.Count;i++)
+{
+    <ul>
+
+        <li>  <h1>@($"{@cars[i].Model} From {@cars[i].Manufacturer}")</h1></li>
+        <li><h2>@(DateTime.Now.Year - @cars[i].FirstUseDate.Year)</h2></li>
+        
+      <li>  <h3>@cars[i].HtmlDescription</h3></li>
+        <li>   <figure class="figure">
+                 <img src="https://picsum.photos/500" class="figure-img img-fluid rounded" alt="@cars[i].Model" >
+                 <figcaption class="figure-caption">@cars[i].Model </figcaption>
+             </figure></li>
+        <li> <a href="/car/getdetial?model=@cars[i].Model&type=list"> Car Detial </a></li>
+    </ul>
+             <hr />
+}
