@@ -1,0 +1,28 @@
+﻿@model AddTicketVM
+@*<form action="/ticket/Add" method="post">
+    
+    <input type="date" name="CreatedDate" />
+    <input type="text" name="Descrition" />
+    <input type="submit" / value=" submit">
+</form>*@
+  
+
+<form asp-action="add" method="post">
+<div class="form-group">
+    <label asp-for="CreatedDate">Date</label>
+    <input class="form-control" asp-for="CreatedDate" />
+</div><div class="form-group">
+    <input  asp-for="Isclosed" />
+    <label asp-for="Isclosed">Isclosed</label>
+</div>
+<div class="form-group">
+
+    <label asp-for="severity"></label>
+    <select asp-for="severity" asp-items="Html.GetEnumSelectList<Severity>()"></select>
+</div>
+<div class="form-group">
+    <label asp-for="Description"></label>
+    <input asp-for="Description" />
+</div>
+<button class="form-group btn-outline-dark" >Submit</button>
+</form>

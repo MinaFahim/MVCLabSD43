@@ -1,0 +1,18 @@
+﻿@model List<Ticket>
+@{
+    var ticket = Model;
+    
+}
+
+
+
+<div class="alert">
+    @foreach (var item in ticket)
+    {
+        <h1>@item.CreatedDate</h1>
+        <h2>@item.severity</h2>
+        <h2>@item.Description</h2>
+        <h2>@item.Isclosed</h2>
+    }
+
+</div>
